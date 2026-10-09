@@ -1,0 +1,47 @@
+name: Feature request
+description: Suggest a new function, type or improvement.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea! Please search the existing issues first, in case someone already suggested it.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would it solve?
+      description: What you are trying to compute, and what is missing or hard today.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Your idea
+      description: How you imagine it working, for example a new function, type or analyzer rule.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Scalar (FP)
+        - Vectors (FP2, FP3)
+        - Functions (sqrt, trigonometry, rounding)
+        - Random generator
+        - Unity conversions
+        - Analyzer
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: determinism
+    attributes:
+      label: Determinism
+      description: How the result could be computed exactly, or rounded the same way on every machine.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Workarounds you use today, or other solutions you considered.

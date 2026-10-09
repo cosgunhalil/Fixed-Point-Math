@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  dotnet:
+    name: .NET tests (${{ matrix.os }}, ${{ matrix.format }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        format: [Q48.16, Q32.32]
+        include:
+          - format: Q48.16
+            defines: ""
+          - format: Q32.32
+            defines: FPM_Q32_32
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Analyzer tests
+        run: dotnet test "Analyzers~/FPM.Analyzers.Tests/FPM.Analyzers.Tests.csproj" -c Release
+
+      - name: Math tests
+        run: dotnet test "Tests~/DotNet/FPM.Tests/FPM.Tests.csproj" -c Release "-p:FpmDefines=${{ matrix.defines }}"

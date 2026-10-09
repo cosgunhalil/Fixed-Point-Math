@@ -1,0 +1,21 @@
+{
+  "name": "com.cosgunhalil.fixed-point-math",
+  "version": "0.1.0",
+  "displayName": "Fixed-Point Math",
+  "description": "Deterministic fixed-point math for lockstep and rollback simulations. FP scalars (Q48.16, or Q32.32 with FPM_Q32_32), FP2 and FP3 vectors, exact 128-bit intermediates, square roots, table-based trigonometry and a seedable random generator, all bit-identical on every machine, platform and scripting backend. The core has no Unity dependency and is Burst-compatible; an optional assembly converts to and from Unity types, and a Roslyn analyzer keeps marked assemblies free of floats and other nondeterministic APIs.",
+  "unity": "2021.3",
+  "keywords": [
+    "fixed-point",
+    "fixed point",
+    "math",
+    "deterministic",
+    "lockstep",
+    "rollback",
+    "multiplayer",
+    "burst"
+  ],
+  "author": {
+    "name": "Halil Cosgun",
+    "url": "https://github.com/cosgunhalil/Fixed-Point-Math"
+  }
+}

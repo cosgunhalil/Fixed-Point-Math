@@ -1,0 +1,30 @@
+# Normalize text to LF in the repository; the working tree follows the local git setup.
+* text=auto
+
+# Unity writes these as LF YAML; keep them LF everywhere to avoid churn.
+*.meta     text eol=lf
+*.asset    text eol=lf
+*.prefab   text eol=lf
+*.unity    text eol=lf
+*.mat      text eol=lf
+*.asmdef   text eol=lf
+*.asmref   text eol=lf
+
+# Binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.psd   binary
+*.tga   binary
+*.exr   binary
+*.mp4   binary
+*.mov   binary
+*.wav   binary
+*.mp3   binary
+*.ogg   binary
+*.fbx   binary
+*.obj   binary
+*.blend binary
+*.dll   binary
+*.pdf   binary

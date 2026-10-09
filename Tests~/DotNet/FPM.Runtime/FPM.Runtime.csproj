@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Compiles Runtime the way Unity does (C# 9, .NET Standard 2.1) so the math and its tests run outside Unity, and
+       applies FPM.Analyzers from source so nondeterministic code fails here too. Runtime/Unity (UnityEngine) is left
+       out. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <AssemblyName>FPM.Runtime</AssemblyName>
+    <RootNamespace>FPM</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <Deterministic>true</Deterministic>
+    <DefineConstants>$(DefineConstants);$(FpmDefines)</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="../../../Runtime/*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../../../Analyzers~/FPM.Analyzers/FPM.Analyzers.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+</Project>

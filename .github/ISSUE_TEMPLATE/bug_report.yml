@@ -1,0 +1,75 @@
+name: Bug report
+description: A wrong result, a result that differs between machines, a crash, or an analyzer problem.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug! Please search the existing issues first. Security problems should be reported privately; see the security policy.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Different results on different machines, platforms or backends
+        - Wrong result (compared with exact arithmetic)
+        - Overflow, saturation or rounding not as documented
+        - Analyzer (missed or wrong diagnostic)
+        - Crash, error or exception
+        - Performance
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: What you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The smallest code that shows it, with the raw values involved (FP.RawValue), not floats.
+      placeholder: |
+        FP a = FP.FromRaw(...);
+        FP b = FP.FromRaw(...);
+        // a * b gives ..., expected ...
+    validations:
+      required: true
+  - type: textarea
+    id: platforms
+    attributes:
+      label: Platforms and scripting backends
+      description: Every platform and backend involved, and whether Burst was on. For differing results, which combinations disagree.
+      placeholder: "Windows x64 Mono (Burst on) vs Android ARM64 IL2CPP (Burst on)"
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: Fixed-point format
+      options:
+        - Q48.16 (default)
+        - Q32.32 (FPM_Q32_32)
+    validations:
+      required: true
+  - type: input
+    id: fpm-version
+    attributes:
+      label: FPM version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: unity-version
+    attributes:
+      label: Unity and Burst versions
+      placeholder: "Unity 6000.3.11f1, Burst 1.8.28"
+  - type: textarea
+    id: console
+    attributes:
+      label: Console errors or warnings
+      description: Paste them here; they are formatted as code automatically.
+      render: text
